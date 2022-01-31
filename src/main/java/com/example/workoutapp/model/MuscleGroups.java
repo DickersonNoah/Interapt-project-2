@@ -1,9 +1,20 @@
 package com.example.workoutapp.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "MuscleGroups")
 public class MuscleGroups {
+    @Id
+    @Column
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long muscle_id;
+
+    @Column
     private String portionofbody;
+    @Column
     private String specificmuscles;
+    @Column
     private String exercise;
 
     public MuscleGroups() {

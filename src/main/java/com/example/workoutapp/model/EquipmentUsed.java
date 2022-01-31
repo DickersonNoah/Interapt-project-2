@@ -1,16 +1,29 @@
 package com.example.workoutapp.model;
 
+
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Equipment")
 public class EquipmentUsed {
+    @Id
+    @Column
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long equipment_id;
-    private String enviroment;
+
+    @Column
+    private String environment;
+
+    @Column
     private String equipment_used;
 
     public EquipmentUsed() {
     }
 
-    public EquipmentUsed(Long equipment_id, String enviroment, String equipment_used) {
+    public EquipmentUsed(Long equipment_id, String environment, String equipment_used) {
         this.equipment_id = equipment_id;
-        this.enviroment = enviroment;
+        this.environment = environment;
         this.equipment_used = equipment_used;
     }
 
@@ -22,12 +35,12 @@ public class EquipmentUsed {
         this.equipment_id = equipment_id;
     }
 
-    public String getEnviroment() {
-        return enviroment;
+    public String getEnvironment() {
+        return environment;
     }
 
-    public void setEnviroment(String enviroment) {
-        this.enviroment = enviroment;
+    public void setEnvironment(String environment) {
+        this.environment = environment;
     }
 
     public String getEquipment_used() {
@@ -42,8 +55,8 @@ public class EquipmentUsed {
     public String toString() {
         return "EquipmentUsed{" +
                 "equipment_id=" + equipment_id +
-                ", enviroment='" + enviroment + '\'' +
-                ", equipment_used='" + equipment_used + '\'' +
+                ", environment='" + environment + '\'' +
+                ", equipment used='" + equipment_used + '\'' +
                 '}';
     }
 }
