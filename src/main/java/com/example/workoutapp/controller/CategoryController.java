@@ -1,15 +1,18 @@
 package com.example.workoutapp.controller;
 
 
-import com.example.workoutapp.exceptions.InformationExistException;
-import com.example.workoutapp.exceptions.InformationNotFoundException;
+import com.example.workoutapp.model.EquipmentUsed;
 import com.example.workoutapp.model.TypeOfWorkout;
 import com.example.workoutapp.repository.CategoryRepository;
+import com.example.workoutapp.service.CategoryService;
+import jdk.jfr.Category;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -17,10 +20,12 @@ public class CategoryController {
 
     private CategoryRepository categoryRepository;
 
+
     @Autowired
     public void setCategoryRepository(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
+
 
     @GetMapping("/categories")
     public List<TypeOfWorkout> getCategories() {
@@ -29,61 +34,31 @@ public class CategoryController {
     }
 
 
-
     @GetMapping(path = "/categories/{categoryId}")
-    public Optional getCategory(@PathVariable Long categoryId) {
-        System.out.println("calling getCategory ==>");
-        Optional category = categoryRepository.findById(categoryId);
-        if (category.isPresent()) {
-            return category;
-        } else {
-            throw new InformationNotFoundException("category with id " + categoryId + " not found");
-        }
+    public TypeOfWorkout getTypeOfWorkout(@PathVariable Long categoryId){
+        System.out.println("calling getTypeOfWorkout ==>");
+        return CategoryService.getTypeOfWorkout(categoryId);
     }
-
 
     @PostMapping("/categories/")
-    public TypeOfWorkout createCategory(@RequestBody TypeOfWorkout typeOfWorkoutObject) {
-        System.out.println("calling createCategory ==>");
-
-        TypeOfWorkout typeOfWorkout = categoryRepository.findByName(typeOfWorkoutObject.getName());
-        if (typeOfWorkout != null) {
-            throw new InformationExistException("category with name " + typeOfWorkout.getName() + " already exists");
-        } else {
-            return categoryRepository.save(typeOfWorkoutObject);
-        }
+    public TypeOfWorkout createTypeOfWorkout(@RequestBody TypeOfWorkout categoryObject){
+        System.out.println("Calling createTypeOfWorkout ===>");
+        return CategoryService.createTypeOfWorkout(categoryObject);
     }
 
-
     @PutMapping("/categories/{categoryId}")
-    public TypeOfWorkout updateCategory(@PathVariable(value = "categoryId") Long categoryId, @RequestBody TypeOfWorkout typeOfWorkoutObject) {
-        System.out.println("calling updateCategory ==>");
-        Optional<TypeOfWorkout> category = categoryRepository.findById(categoryId);
-        if (category.isPresent()) {
-            if (typeOfWorkoutObject.getName().equals(category.get().getName())) {
-                System.out.println("Same");
-                throw new InformationExistException("category " + category.get().getName() + " is already exists");
-            } else {
-                TypeOfWorkout updateTypeOfWorkout = categoryRepository.findById(categoryId).get();
-                updateTypeOfWorkout.setName(typeOfWorkoutObject.getName());
-                updateTypeOfWorkout.setDescription(typeOfWorkoutObject.getDescription());
-                return categoryRepository.save(updateTypeOfWorkout);
-            }
-        } else {
-            throw new InformationNotFoundException("category with id " + categoryId + " not found");
-        }
+    public TypeOfWorkout updateTypeOfWorkout(@PathVariable(value = "categoryId") Long categoryId, @RequestBody TypeOfWorkout categoryObject){
+        System.out.println("Calling updateTypeOfWorkout");
+        return CategoryService.updateTypeOfWorkout(categoryId, categoryObject);
     }
 
     @DeleteMapping("/categories/{categoryId}")
-    public Optional<TypeOfWorkout> deleteCategory(@PathVariable(value = "categoryId") Long categoryId) {
-        System.out.println("calling deleteCategory ==>");
-        Optional<TypeOfWorkout> category = categoryRepository.findById(categoryId);
-
-        if (category.isPresent()) {
-            categoryRepository.deleteById(categoryId);
-            return category;
-        } else {
-            throw new InformationNotFoundException("category with id " + categoryId + " not found");
-        }
+    public ResponseEntity<HashMap> deleteTypeOfWorkout(@PathVariable(value = "categoryId") Long categoryId){
+        System.out.println("calling DeleteTypeOfWorkout ===>");
+        String status = CategoryService.deleteTypeOfWorkout(categoryId);
+        HashMap message = new HashMap();
+        message.put("status", status);
+        return new ResponseEntity(message, HttpStatus.OK);
     }
+
 }
