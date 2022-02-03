@@ -5,6 +5,7 @@ import com.example.workoutapp.exceptions.InformationNotFoundException;
 import com.example.workoutapp.model.TypeOfWorkout;
 import com.example.workoutapp.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 
@@ -20,7 +21,7 @@ public class CategoryService {
 
 
     @Autowired
-    public void setCategoryRepository(CategoryRepository categoryRepository) {
+    public void setCategoryRepository(@Qualifier(value = "Category") CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
     }
 
