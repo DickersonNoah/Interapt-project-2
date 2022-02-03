@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "}/api")
+@RequestMapping(path = "/api")
 public class equipmentController {
 
     private EquipmentService equipmentService;
@@ -21,14 +21,14 @@ public class equipmentController {
         this.equipmentService = equipmentService;
     }
 
-    @GetMapping("/api/categories/{categoryId}/Equipment")
+    @GetMapping("/categories/{categoryId}/Equipment")
     public List<EquipmentUsed> getCategories(@PathVariable(value = "categoryId") Long categoryId) {
         System.out.println("calling getCategoryRecipes ==>");
         return equipmentService.getCategories(categoryId);
     }
 
 
-    @GetMapping(path = "/api/categories/{categoryId}/Equipment/{EquipmentId}")
+    @GetMapping(path = "/categories/{categoryId}/Equipment/{EquipmentId}")
     public Optional getEquipment(@PathVariable(value = "categoryId") Long categoryId, @PathVariable(value = "EquipmentId") Long equipmentId) {
         System.out.println("calling getCategoryRecipe ==>");
         return equipmentService.getEquipment(categoryId, equipmentId);
@@ -36,7 +36,7 @@ public class equipmentController {
 
 
 
-    @PostMapping("/api/categories/{categoryId}/Equipment")
+    @PostMapping("/categories/{categoryId}/Equipment")
     public EquipmentUsed createEquipment(@PathVariable(value = "categoryId") String categoryId, @RequestBody EquipmentUsed equipmentObject) {
         System.out.println("calling createCategoryRecipe ==>");
         return equipmentService.createEquipment(categoryId, equipmentObject);
