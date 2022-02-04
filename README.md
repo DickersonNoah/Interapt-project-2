@@ -1,5 +1,4 @@
-# Interapt-project-2
-# WorkoutApp
+# Interapt-project-2(WorkoutApp)
 
 ## Description
 This project is the second project for the Java immersive program at General Assembly, for Interapt. This application is a workout generator application that will allow the user to select certain types of workout styles, muscle groups and equipment they have or are able to gain access to. Then will generate aspecific set and rep scheme and provide simple instruction on the exercise. 
