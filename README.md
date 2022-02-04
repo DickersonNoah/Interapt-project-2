@@ -17,7 +17,8 @@ This project is the second project for the Java immersive program at General Ass
 
 ## Entity Relationship Diagram (ERD)
 ![Screen Shot 2022-01-31 at 12 46 36 PM](https://user-images.githubusercontent.com/87401362/152557428-da68a13b-cd2f-4287-98ea-0b24584302ea.png)
-
+(I have a white board where I usally work but did not get a chance to take the pictures before I got snowed in.)
 
 ## Struggles
-I did not grasp the concept of Unit 2 as well as I had hoped and this project is not finished by any means. A lack of knowledge and unforseen circumstances caused this project to go unfinished and I take full responsibility. 
+Everything for this project was a struggle.
+
