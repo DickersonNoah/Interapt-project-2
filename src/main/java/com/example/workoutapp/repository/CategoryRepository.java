@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CategoryRepository extends JpaRepository<TypeOfWorkout, Long> {
     TypeOfWorkout findByName(String categoryName);
-
     }
 
 

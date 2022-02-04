@@ -8,47 +8,47 @@ public class MuscleGroups {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long muscle_id;
+    private Long muscleId;
 
     @Column
-    private String portionofbody;
+    private String portionOfBody;
     @Column
-    private String specificmuscles;
+    private String specificMuscles;
     @Column
     private String exercise;
 
     public MuscleGroups() {
     }
 
-    public MuscleGroups(Long muscle_id, String portionofbody, String specificmuscles, String exercise) {
-        this.muscle_id = muscle_id;
-        this.portionofbody = portionofbody;
-        this.specificmuscles = specificmuscles;
+    public MuscleGroups(Long muscleId, String portionOfBody, String specificMuscles, String exercise) {
+        this.muscleId = muscleId;
+        this.portionOfBody = portionOfBody;
+        this.specificMuscles = specificMuscles;
         this.exercise = exercise;
     }
 
-    public Long getMuscle_id() {
-        return muscle_id;
+    public Long getMuscleId() {
+        return muscleId;
     }
 
-    public void setMuscle_id(Long muscle_id) {
-        this.muscle_id = muscle_id;
+    public void setMuscleId(Long muscleId) {
+        this.muscleId = muscleId;
     }
 
-    public String getPortionofbody() {
-        return portionofbody;
+    public String getPortionOfBody() {
+        return portionOfBody;
     }
 
-    public void setPortionofbody(String portionofbody) {
-        this.portionofbody = portionofbody;
+    public void setPortionOfBody(String portionBfBody) {
+        this.portionOfBody = portionOfBody;
     }
 
-    public String getSpecificmuscles() {
-        return specificmuscles;
+    public String getSpecificMuscles() {
+        return specificMuscles;
     }
 
-    public void setSpecificmuscles(String specificmuscles) {
-        this.specificmuscles = specificmuscles;
+    public void setSpecificMuscles(String specificMuscles) {
+        this.specificMuscles = specificMuscles;
     }
 
     public String getExercise() {
@@ -62,9 +62,9 @@ public class MuscleGroups {
     @Override
     public String toString() {
         return "MuscleGroups{" +
-                "id=" + muscle_id +
-                ", portion of the body='" + portionofbody + '\'' +
-                ", specific muscles='" + specificmuscles + '\'' +
+                "muscleid=" + muscleId +
+                ", portion of the body='" + portionOfBody + '\'' +
+                ", specific muscles='" + specificMuscles + '\'' +
                 ", exercise='" + exercise + '\'' +
                 '}';
     }

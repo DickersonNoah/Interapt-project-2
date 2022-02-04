@@ -10,29 +10,29 @@ public class EquipmentUsed {
     @Id
     @Column
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    private Long equipment_id;
+    private Long equipmentId;
 
     @Column
     private String environment;
 
     @Column
-    private String equipment_used;
+    private String equipmentUsed;
 
     public EquipmentUsed() {
     }
 
-    public EquipmentUsed(Long equipment_id, String environment, String equipment_used) {
-        this.equipment_id = equipment_id;
+    public EquipmentUsed(Long equipmentId, String environment, String equipmentUsed) {
+        this.equipmentId = equipmentId;
         this.environment = environment;
-        this.equipment_used = equipment_used;
+        this.equipmentUsed = equipmentUsed;
     }
 
-    public Long getEquipment_id() {
-        return equipment_id;
+    public Long getEquipmentId() {
+        return equipmentId;
     }
 
-    public void setEquipment_id(Long equipment_id) {
-        this.equipment_id = equipment_id;
+    public void setEquipmentId(Long equipmentId) {
+        this.equipmentId = equipmentId;
     }
 
     public String getEnvironment() {
@@ -43,20 +43,21 @@ public class EquipmentUsed {
         this.environment = environment;
     }
 
-    public String getEquipment_used() {
-        return equipment_used;
+    public String getEquipmentUsed() {
+        return equipmentUsed;
     }
 
-    public void setEquipment_used(String equipment_used) {
-        this.equipment_used = equipment_used;
+    public void setEquipmentUsed(EquipmentUsed equipmentUsed) {
+        this.equipmentUsed = String.valueOf(equipmentUsed);
     }
 
     @Override
     public String toString() {
         return "EquipmentUsed{" +
-                "equipment_id=" + equipment_id +
+                "equipmentId=" + equipmentId +
                 ", environment='" + environment + '\'' +
-                ", equipment used='" + equipment_used + '\'' +
+                ", equipmentUsed='" + equipmentUsed + '\'' +
                 '}';
     }
 }
+

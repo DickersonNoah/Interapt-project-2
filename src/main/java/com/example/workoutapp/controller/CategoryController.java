@@ -24,6 +24,8 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
+
+
     @GetMapping("/TOWs")
     public List<TypeOfWorkout> getTypes() {
         return categoryService.getTypes();
