@@ -1,7 +1,4 @@
 package com.example.workoutapp.model;
-
-
-
 import javax.persistence.*;
 
 @Entity
@@ -18,8 +15,14 @@ public class EquipmentUsed {
     @Column
     private String equipmentUsed;
 
+
+
     public EquipmentUsed() {
     }
+
+    @ManyToOne
+    @JoinColumn(name = "categories")
+    private TypeOfWorkout typeOfWorkout;
 
     public EquipmentUsed(Long equipmentId, String environment, String equipmentUsed) {
         this.equipmentId = equipmentId;
@@ -50,6 +53,7 @@ public class EquipmentUsed {
     public void setEquipmentUsed(EquipmentUsed equipmentUsed) {
         this.equipmentUsed = String.valueOf(equipmentUsed);
     }
+
 
     @Override
     public String toString() {

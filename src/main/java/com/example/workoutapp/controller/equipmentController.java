@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping(path = "/api")
+@RequestMapping(path = "/api/TOWs/{categoryId}")
 public class equipmentController {
 
     private EquipmentService equipmentService;
@@ -34,8 +34,8 @@ public class equipmentController {
     }
 
 
-    @PostMapping("/Equipment")
-    public EquipmentUsed createEquipment(@RequestBody EquipmentUsed equipmentObject) {
+    @PostMapping("/equipment")
+    public EquipmentUsed createEquipment( @RequestBody EquipmentUsed equipmentObject) {
         return equipmentService.createEquipment(equipmentObject);
 
     }

@@ -10,6 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @Qualifier(value = "Equipment")
 public interface EquipmentRepository extends JpaRepository<EquipmentUsed, Long> {
-    EquipmentUsed findByEquipmentUsed(String equipmentUsed);
-
+    EquipmentUsed findByEquipmentId(Long getEquipmentId);
 }
